@@ -23,4 +23,11 @@ export class PazienteService {
   insert(paziente: Paziente): Observable<Paziente> {
     return this.http.post<Paziente>(this.apiUrl, paziente);
   }
+
+  // --- METODO PER ELIMINARE UN PAZIENTE ---
+  // Attenzione: assicurati che il back-end accetti chiamate DELETE su /api/pazienti/{id}
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
 }
