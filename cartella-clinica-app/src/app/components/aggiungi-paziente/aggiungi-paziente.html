@@ -1,0 +1,23 @@
+<div class="form-container">
+  <h3>Nuovo Paziente</h3>
+
+  <form (ngSubmit)="salva()" class="example-form">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="paziente.nome" name="nome" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cognome</mat-label>
+      <input matInput [(ngModel)]="paziente.cognome" name="cognome" required>
+    </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="primary" type="submit">
+      Aggiungi Paziente
+    </button>
+
+  </form>
+</div>

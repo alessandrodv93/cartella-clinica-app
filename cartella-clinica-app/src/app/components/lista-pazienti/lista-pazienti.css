@@ -1,0 +1,25 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pazienti-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pazienti-table th, .pazienti-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.pazienti-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.pazienti-table tr:hover {
+  background-color: #f9f9f9;
+}

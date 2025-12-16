@@ -1,0 +1,46 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'; // Necessario per usare il ciclo *ngFor nell'HTML
+import { PazienteService } from '../../services/paziente';
+import { Paziente } from '../../models/paziente'; // Importiamo il modello
+
+// Import per la modifica dei componenti da Angular Material
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
+@Component({
+  selector: 'app-lista-pazienti',
+  standalone: true,
+  imports: [CommonModule,MatTableModule, MatFormFieldModule, MatInputModule],
+  templateUrl: './lista-pazienti.html',
+  styleUrl: './lista-pazienti.css'
+})
+
+export class ListaPazienti implements OnInit {
+
+  // 1. Non usiamo più un array semplice, ma un DataSource specifico di Material
+  dataSource = new MatTableDataSource<Paziente>();
+
+  displayedColumns: string[] = ['id', 'nome', 'cognome'];
+
+  constructor(private pazienteService: PazienteService) { }
+
+  ngOnInit(): void {
+    this.caricaPazienti();
+  }
+
+  caricaPazienti() {
+    this.pazienteService.getAll().subscribe(data => {
+      // 2. Quando arrivano i dati, li mettiamo dentro il DataSource
+      this.dataSource.data = data;
+    });
+  }
+
+  // 3. Funzione che viene chiamata ogni volta che scrivi una lettera nella barra di ricerca
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    // Pulisce la stringa (toglie spazi vuoti e rende tutto minuscolo per la ricerca)
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+}
