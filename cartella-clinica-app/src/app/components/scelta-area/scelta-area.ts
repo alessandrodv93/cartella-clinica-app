@@ -2,10 +2,15 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router'; // Import fondamentale per navigare
 
+// Import per la modifica dei componenti da Angular Material
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+
+
 @Component({
   selector: 'app-scelta-area',
   standalone: true,
-  imports: [MatButtonModule], // Importiamo i bottoni Material
+  imports: [MatButtonModule, MatCardModule, MatIconModule],
   templateUrl: './scelta-area.html',
   styleUrl: './scelta-area.css'
 })

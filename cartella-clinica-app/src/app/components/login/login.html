@@ -1,24 +1,35 @@
-<div class="login-container">
-  <div class="login-card mat-elevation-z8">
-    <h2>Benvenuto in MediPuglia</h2>
-    <p>Inserisci le tue credenziali per accedere.</p>
+<div class="login-background">
 
-    <form (ngSubmit)="accedi()">
+  <mat-card class="login-card">
+    <mat-card-header style="justify-content: center;">
+      <mat-card-title>Accedi</mat-card-title>
+    </mat-card-header>
 
-      <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Username</mat-label>
-        <input matInput [(ngModel)]="username" name="user" required>
-      </mat-form-field>
+    <mat-card-content>
+      <div style="text-align: center; margin: 20px 0;">
+        <mat-icon style="font-size: 60px; width: 60px; height: 60px; color: #3f51b5;">account_circle</mat-icon>
+      </div>
 
-      <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="password" name="pass" type="password" required>
-      </mat-form-field>
+      <form (ngSubmit)="accedi()">
 
-      <button mat-raised-button color="primary" type="submit" style="width: 100%; margin-top: 10px;">
-        ACCEDI
-      </button>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Username</mat-label>
+          <mat-icon matPrefix>person</mat-icon> <input matInput [(ngModel)]="username" name="user" required>
+        </mat-form-field>
 
-    </form>
-  </div>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon> <input matInput [(ngModel)]="password" name="pass" type="password" required>
+        </mat-form-field>
+
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" class="btn-block">
+            ACCEDI
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
 </div>

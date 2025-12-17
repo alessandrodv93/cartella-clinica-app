@@ -1,32 +1,41 @@
-<div class="area-container">
-  <div class="header">
-    <h1>Portale Sanitario Regionale</h1>
-    <p>Seleziona la tua ASL di riferimento per procedere al Login</p>
-  </div>
+<div class="page-background">
 
-  <div class="grid-container">
-    <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Bari')">
-      ASL BARI
-    </button>
+  <mat-card class="main-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon style="font-size: 40px; width: 40px; height: 40px; color: #3f51b5;">local_hospital</mat-icon>
+      </div>
+      <mat-card-title>Portale Sanitario Regionale</mat-card-title>
+      <mat-card-subtitle>Seleziona la tua ASL di riferimento</mat-card-subtitle>
+    </mat-card-header>
 
-    <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Brindisi')">
-      ASL BRINDISI
-    </button>
+    <mat-card-content>
+      <div class="grid-container">
+        <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Bari')">
+          <mat-icon>location_on</mat-icon> ASL BARI
+        </button>
 
-    <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Lecce')">
-      ASL LECCE
-    </button>
+        <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Brindisi')">
+          <mat-icon>location_on</mat-icon> ASL BRINDISI
+        </button>
 
-    <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Foggia')">
-      ASL FOGGIA
-    </button>
+        <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Lecce')">
+          <mat-icon>location_on</mat-icon> ASL LECCE
+        </button>
 
-    <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Taranto')">
-      ASL TARANTO
-    </button>
+        <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Foggia')">
+          <mat-icon>location_on</mat-icon> ASL FOGGIA
+        </button>
 
-    <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('BAT')">
-      ASL BAT
-    </button>
-  </div>
+        <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('Taranto')">
+          <mat-icon>location_on</mat-icon> ASL TARANTO
+        </button>
+
+        <button mat-raised-button color="primary" class="btn-area" (click)="selezionaArea('BAT')">
+          <mat-icon>location_on</mat-icon> ASL BAT
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
 </div>
