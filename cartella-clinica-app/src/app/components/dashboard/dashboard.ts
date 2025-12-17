@@ -35,6 +35,6 @@ export class DashboardComponent {
   logout() {
     // Puliamo la sessione e torniamo all'inizio
     sessionStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 }
