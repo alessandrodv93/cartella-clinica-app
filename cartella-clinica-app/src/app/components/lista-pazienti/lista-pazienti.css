@@ -1,25 +1,64 @@
-.container {
+.page-container {
+  background-color: #f5f7fa; /* Sfondo grigio leggero */
+  min-height: 100vh;
+}
+
+.content-wrapper {
   padding: 20px;
-  font-family: Arial, sans-serif;
+  max-width: 1200px; /* Non far allargare troppo su schermi giganti */
+  margin: 0 auto; /* Centra il contenuto */
 }
 
-.pazienti-table {
+/* Stile Toolbar */
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.spacer {
+  flex: 1 1 auto; /* Spinge l'icona a destra */
+}
+
+/* Stile Card e Pannelli */
+.panel-inserimento, .table-card {
+  border-radius: 8px !important;
+}
+
+.search-header {
+  padding: 20px 20px 0 20px;
+}
+
+/* Stile Tabella */
+table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
 }
 
-.pazienti-table th, .pazienti-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.pazienti-table th {
-  background-color: #f2f2f2;
+th.mat-header-cell {
+  background-color: #e3f2fd; /* Intestazione azzurrina */
+  color: #1a237e;
   font-weight: bold;
+  font-size: 14px;
 }
 
-.pazienti-table tr:hover {
-  background-color: #f9f9f9;
+.riga-paziente:hover {
+  background-color: #f5f5f5; /* Evidenzia riga al passaggio del mouse */
 }
+
+/* Badge dello stato (es. Ricoverato) */
+.badge-stato {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #c8e6c9;
+}
+
+.page-container {
+  background-color: #e0f2f1;
+  min-height: 100vh;
+}
+

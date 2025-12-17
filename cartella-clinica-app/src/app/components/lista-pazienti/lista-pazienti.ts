@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Necessario per usare il ciclo *ngFor nell'HTML
-import { PazienteService } from '../../services/paziente';
-import { Paziente } from '../../models/paziente'; // Importiamo il modello
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // <--- CORRETTO: Aggiunto Router
 
-// Import per la modifica dei componenti da Angular Material
-import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+// Moduli Material
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip'; // <--- Aggiunto per il tooltip dei bottoni
+
+// Servizi
+import { PazienteService, Paziente } from '../../services/paziente';
+
+// Import del componente AggiungiPaziente
+import { AggiungiPazienteComponent } from '../aggiungi-paziente/aggiungi-paziente';
 
 @Component({
   selector: 'app-lista-pazienti',
@@ -16,65 +25,61 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     MatTableModule,
-    MatFormFieldModule,
     MatInputModule,
+    MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatTooltipModule,
+    AggiungiPazienteComponent // <--- Assicurati che questo nome coincida con l'import sopra
   ],
   templateUrl: './lista-pazienti.html',
-  styleUrl: './lista-pazienti.css',
+  styleUrl: './lista-pazienti.css'
 })
 export class ListaPazienti implements OnInit {
-  // 1. Non usiamo più un array semplice, ma un DataSource specifico di Material
+
   dataSource = new MatTableDataSource<Paziente>();
+  displayedColumns: string[] = ['id', 'nome', 'cognome', 'dataIngresso', 'stato', 'idReparto', 'azioni'];
 
-  displayedColumns: string[] = [
-    'id',
-    'nome',
-    'cognome',
-    'dataIngresso',
-    'stato',
-    'idReparto',
-    'azioni',
-  ];
+  repartoCorrente = sessionStorage.getItem('repartoSelezionato') || 'Generale';
 
-  constructor(private pazienteService: PazienteService) {}
+  constructor(
+    private pazienteService: PazienteService,
+    private router: Router // <--- Ora funzionerà perché abbiamo importato Router in alto
+  ) { }
 
   ngOnInit(): void {
     this.caricaPazienti();
   }
 
   caricaPazienti() {
-    this.pazienteService.getAll().subscribe((data) => {
-      // 2. Quando arrivano i dati, li mettiamo dentro il DataSource
+    this.pazienteService.getAll().subscribe(data => {
       this.dataSource.data = data;
     });
   }
 
-  // 3. Funzione che viene chiamata ogni volta che scrivi una lettera nella barra di ricerca
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    // Pulisce la stringa (toglie spazi vuoti e rende tutto minuscolo per la ricerca)
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  // Aggiungi questo metodo nella classe
-  modifica(paziente: Paziente) {
-    // Diciamo al service di "trasmettere" questo paziente
-    this.pazienteService.pazienteDaModificare.emit(paziente);
-
-    // Opzionale: scrolla la pagina in alto verso il form
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // --- FUNZIONE PER ELIMINARE ---
   elimina(id: number) {
-    if (confirm('Sei sicuro di voler eliminare questo paziente?')) {
+    if(confirm("Sei sicuro di voler eliminare questo paziente?")) {
       this.pazienteService.delete(id).subscribe(() => {
-        // Dopo aver eliminato, ricarichiamo la lista per vedere che è sparito
         this.caricaPazienti();
         alert('Paziente eliminato!');
       });
     }
+  }
+
+  modifica(paziente: Paziente) {
+    this.pazienteService.pazienteDaModificare.emit(paziente);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tornaIndietro() {
+    this.router.navigate(['/dashboard']);
   }
 }

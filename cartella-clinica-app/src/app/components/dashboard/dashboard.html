@@ -1,0 +1,90 @@
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+    <div>
+      <h1>Benvenuto, {{ utente }}</h1>
+      <p>Stai operando in: <strong>{{ areaSelezionata }}</strong></p>
+    </div>
+    <button mat-stroked-button color="warn" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon> ESCI
+    </button>
+  </header>
+
+  <h2>Seleziona il Reparto Operativo</h2>
+
+  <div class="grid-reparti">
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Cardiologia')">
+      <mat-icon class="icona-reparto rosso">favorite</mat-icon>
+      <mat-card-title>Cardiologia</mat-card-title>
+      <mat-card-subtitle>Monitoraggio cardiaco</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Ortopedia')">
+      <mat-icon class="icona-reparto blu">accessibility_new</mat-icon>
+      <mat-card-title>Ortopedia</mat-card-title>
+      <mat-card-subtitle>Traumi e riabilitazione</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Chirurgia')">
+      <mat-icon class="icona-reparto verde">medical_services</mat-icon>
+      <mat-card-title>Chirurgia</mat-card-title>
+      <mat-card-subtitle>Sala operatoria</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Pronto Soccorso')">
+      <mat-icon class="icona-reparto arancione">local_hospital</mat-icon>
+      <mat-card-title>Pronto Soccorso</mat-card-title>
+      <mat-card-subtitle>Emergenze H24</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Pediatria')">
+      <mat-icon class="icona-reparto viola">child_care</mat-icon>
+      <mat-card-title>Pediatria</mat-card-title>
+      <mat-card-subtitle>Cura dei bambini</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Neurologia')">
+      <mat-icon class="icona-reparto indaco">psychology</mat-icon>
+      <mat-card-title>Neurologia</mat-card-title>
+      <mat-card-subtitle>Sistema nervoso</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Ginecologia')">
+      <mat-icon class="icona-reparto rosa">pregnant_woman</mat-icon>
+      <mat-card-title>Ginecologia</mat-card-title>
+      <mat-card-subtitle>Salute della donna</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Oculistica')">
+      <mat-icon class="icona-reparto azzurro">visibility</mat-icon>
+      <mat-card-title>Oculistica</mat-card-title>
+      <mat-card-subtitle>Visite oculistiche</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Dermatologia')">
+      <mat-icon class="icona-reparto marrone">face</mat-icon>
+      <mat-card-title>Dermatologia</mat-card-title>
+      <mat-card-subtitle>Cura della pelle</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Psichiatria')">
+      <mat-icon class="icona-reparto verde-acqua">mood</mat-icon>
+      <mat-card-title>Psichiatria</mat-card-title>
+      <mat-card-subtitle>Salute mentale</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Radiologia')">
+      <mat-icon class="icona-reparto grigio-scuro">camera_roll</mat-icon>
+      <mat-card-title>Radiologia</mat-card-title>
+      <mat-card-subtitle>Diagnostica per immagini</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Geriatria')">
+      <mat-icon class="icona-reparto oro">elderly</mat-icon>
+      <mat-card-title>Geriatria</mat-card-title>
+      <mat-card-subtitle>Cura degli anziani</mat-card-subtitle>
+    </mat-card>
+
+  </div>
+</div>

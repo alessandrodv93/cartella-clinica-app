@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Paziente } from '../models/paziente';
 import { EventEmitter } from '@angular/core';
+
+export interface Paziente {
+  id: number;
+  nome: string;
+  cognome: string;
+  dataIngresso: string;
+  stato: string;
+  idReparto: number; // Può essere number o string a seconda del tuo DB
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PazienteService {
 
   // Assicurati che l'URL sia corretto per il tuo backend
