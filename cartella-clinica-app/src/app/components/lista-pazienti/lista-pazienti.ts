@@ -10,30 +10,42 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
-
 @Component({
   selector: 'app-lista-pazienti',
   standalone: true,
-  imports: [CommonModule,MatTableModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   templateUrl: './lista-pazienti.html',
-  styleUrl: './lista-pazienti.css'
+  styleUrl: './lista-pazienti.css',
 })
-
 export class ListaPazienti implements OnInit {
-
   // 1. Non usiamo più un array semplice, ma un DataSource specifico di Material
   dataSource = new MatTableDataSource<Paziente>();
 
-  displayedColumns: string[] = ['id', 'nome', 'cognome', 'dataIngresso', 'stato', 'idReparto', 'azioni'];
+  displayedColumns: string[] = [
+    'id',
+    'nome',
+    'cognome',
+    'dataIngresso',
+    'stato',
+    'idReparto',
+    'azioni',
+  ];
 
-  constructor(private pazienteService: PazienteService) { }
+  constructor(private pazienteService: PazienteService) {}
 
   ngOnInit(): void {
     this.caricaPazienti();
   }
 
   caricaPazienti() {
-    this.pazienteService.getAll().subscribe(data => {
+    this.pazienteService.getAll().subscribe((data) => {
       // 2. Quando arrivano i dati, li mettiamo dentro il DataSource
       this.dataSource.data = data;
     });
@@ -46,9 +58,18 @@ export class ListaPazienti implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // Aggiungi questo metodo nella classe
+  modifica(paziente: Paziente) {
+    // Diciamo al service di "trasmettere" questo paziente
+    this.pazienteService.pazienteDaModificare.emit(paziente);
+
+    // Opzionale: scrolla la pagina in alto verso il form
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // --- FUNZIONE PER ELIMINARE ---
   elimina(id: number) {
-    if(confirm("Sei sicuro di voler eliminare questo paziente?")) {
+    if (confirm('Sei sicuro di voler eliminare questo paziente?')) {
       this.pazienteService.delete(id).subscribe(() => {
         // Dopo aver eliminato, ricarichiamo la lista per vedere che è sparito
         this.caricaPazienti();
@@ -56,5 +77,4 @@ export class ListaPazienti implements OnInit {
       });
     }
   }
-
 }

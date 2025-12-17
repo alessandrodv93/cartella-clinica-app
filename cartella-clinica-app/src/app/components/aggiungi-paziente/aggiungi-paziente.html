@@ -1,5 +1,5 @@
 <div class="form-container">
-  <h3>Nuovo Paziente</h3>
+  <h3>{{ isModifica ? 'Modifica Paziente' : 'Nuovo Paziente' }}</h3>
 
   <form (ngSubmit)="salva()" class="example-form">
 
@@ -16,7 +16,11 @@
     <br>
 
     <button mat-raised-button color="primary" type="submit">
-      Aggiungi Paziente
+      {{ isModifica ? 'Salva Modifiche' : 'Aggiungi Paziente' }}
+    </button>
+
+    <button *ngIf="isModifica" mat-button type="button" (click)="resetForm()" style="margin-left: 10px;">
+      Annulla
     </button>
 
   </form>

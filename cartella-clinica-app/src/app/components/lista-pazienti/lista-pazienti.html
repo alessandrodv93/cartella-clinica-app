@@ -39,11 +39,19 @@
     </ng-container>
 
     <ng-container matColumnDef="azioni">
+
       <th mat-header-cell *matHeaderCellDef> Azioni </th>
+
       <td mat-cell *matCellDef="let p">
+
+        <button mat-icon-button color="primary" (click)="modifica(p)" style="margin-right: 8px;">
+          <mat-icon>edit</mat-icon>
+        </button>
+
         <button mat-icon-button color="warn" (click)="elimina(p.id)">
           <mat-icon>delete</mat-icon>
         </button>
+
       </td>
     </ng-container>
 
