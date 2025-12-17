@@ -5,7 +5,7 @@
       <h1>Benvenuto, {{ utente }}</h1>
       <p>Stai operando in: <strong>{{ areaSelezionata }}</strong></p>
     </div>
-    <button mat-stroked-button color="warn" (click)="logout()">
+    <button mat-stroked-button (click)="logout()">
       <mat-icon>exit_to_app</mat-icon> ESCI
     </button>
   </header>
@@ -74,10 +74,10 @@
       <mat-card-subtitle>Salute mentale</mat-card-subtitle>
     </mat-card>
 
-    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Radiologia')">
-      <mat-icon class="icona-reparto grigio-scuro">camera_roll</mat-icon>
-      <mat-card-title>Radiologia</mat-card-title>
-      <mat-card-subtitle>Diagnostica per immagini</mat-card-subtitle>
+    <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Diagnostica')">
+      <mat-icon class="icona-reparto grigio-scuro">biotech</mat-icon>
+      <mat-card-title>Diagnostica</mat-card-title>
+      <mat-card-subtitle>Esami Diagnostici</mat-card-subtitle>
     </mat-card>
 
     <mat-card class="card-reparto" matRipple (click)="vaiAlReparto('Geriatria')">

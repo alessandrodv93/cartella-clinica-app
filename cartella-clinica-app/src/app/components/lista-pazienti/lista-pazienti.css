@@ -58,7 +58,33 @@ th.mat-header-cell {
 }
 
 .page-container {
-  background-color: #e0f2f1;
+  background-color: #ebe6dc;
   min-height: 100vh;
 }
+
+/* BARRA IN ALTO (Toolbar) */
+.app-toolbar  {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(29, 28, 28, 0.2);
+  background-color: red;
+  color: white; /* Testo bianco per contrasto */
+}
+
+/* Forza il colore bianco per le icone dentro la toolbar */
+.app-toolbar .mat-icon {
+  color: white !important;
+}
+
+/* INTESTAZIONE TABELLA */
+th.mat-header-cell {
+
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
 

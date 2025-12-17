@@ -1,18 +1,30 @@
 .dashboard-container {
   padding: 30px;
-  background-color: #f5f7fa;
+  background-color: #ebe6dc;
   min-height: 100vh;
 }
 
 .dashboard-header {
   display: flex;
+  color: white !important;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
-  background: white;
+  background: red;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.dashboard-header h1 {
+color: white  !important;
+}
+
+/* --- STILE TASTO ESCI --- */
+/* Seleziona il bottone che si trova dentro l'intestazione */
+.dashboard-header button {
+  color: white !important;        /* Scritta e Icona bianche */
+  border-color: white !important; /* Bordo del bottone bianco */
 }
 
 h1 { margin: 0; color: #2c3e50; }
