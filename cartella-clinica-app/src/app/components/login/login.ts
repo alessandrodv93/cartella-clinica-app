@@ -22,15 +22,13 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
-  accedi() {
-    //Controllo credenziali (per ora statico)
+accedi() {
+    // Controllo credenziali (in futuro questo lo farà il backend Java)
     if (this.username === 'admin' && this.password === 'admin123') {
       console.log('Login successo!');
-
-      // Requisito Analisi: dopo il login si va alla scelta reparti (che faremo dopo)
       this.router.navigate(['/dashboard']);
     } else {
-      alert('Credenziali errate! Password richiesta: admin123');
+      alert('Username o Password errati. Riprova.');
     }
   }
 
