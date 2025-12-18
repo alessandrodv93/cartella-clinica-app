@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ListaPazienti } from './components/lista-pazienti/lista-pazienti';
-import { AggiungiPazienteComponent } from './components/aggiungi-paziente/aggiungi-paziente';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ListaPazienti,AggiungiPazienteComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

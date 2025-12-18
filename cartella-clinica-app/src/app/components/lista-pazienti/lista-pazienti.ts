@@ -33,7 +33,7 @@ import { AggiungiPazienteComponent } from '../aggiungi-paziente/aggiungi-pazient
     MatToolbarModule,
     MatExpansionModule,
     MatTooltipModule,
-    AggiungiPazienteComponent // <--- Assicurati che questo nome coincida con l'import sopra
+    AggiungiPazienteComponent
   ],
   templateUrl: './lista-pazienti.html',
   styleUrl: './lista-pazienti.css'
