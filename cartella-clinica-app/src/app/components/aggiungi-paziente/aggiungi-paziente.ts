@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Paziente } from '../../models/paziente';
-import { PazienteService } from '../../services/paziente';
+import { PazienteService } from '../../services/paziente.service';
 import { OnInit } from '@angular/core';
 
 // Import per la modifica dei componenti da Angular Material

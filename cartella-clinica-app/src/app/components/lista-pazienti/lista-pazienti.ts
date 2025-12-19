@@ -14,7 +14,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip'; // <--- Aggiunto per il tooltip dei bottoni
 
 // Servizi
-import { PazienteService, Paziente } from '../../services/paziente';
+import { PazienteService, Paziente } from '../../services/paziente.service';
 
 // Import del componente AggiungiPaziente
 import { AggiungiPazienteComponent } from '../aggiungi-paziente/aggiungi-paziente';

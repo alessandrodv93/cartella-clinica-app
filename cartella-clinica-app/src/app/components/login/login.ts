@@ -23,18 +23,10 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
 accedi() {
-  // 1. Controllo solo se i campi sono compilati (non vuoti)
-  // Non mi interessa COSA c'è scritto, basta che non siano vuoti.
   const isUsernameValid = this.username && this.username.trim().length > 0;
   const isPasswordValid = this.password && this.password.trim().length > 0;
 
   if (isUsernameValid && isPasswordValid) {
-
-    // 2. Simulazione di passaggio
-    // Qui, in futuro, ci sarà la chiamata al server.
-    // Per ora, accettiamo QUALSIASI credenziale pur di far testare l'app.
-    // VANTAGGIO: Non c'è nessuna password scritta in chiaro nel codice!
-
     console.log('Invio al server:', this.username); // Log di debug
 
     sessionStorage.setItem('utente', 'Utente Demo');

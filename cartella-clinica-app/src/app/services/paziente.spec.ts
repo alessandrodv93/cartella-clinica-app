@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Paziente } from './paziente';
+// Importa il SERVIZIO (la classe reale)
+import { PazienteService } from './paziente.service';
 
-describe('Paziente', () => {
-  let service: Paziente;
+describe('PazienteService', () => {
+  let service: PazienteService; // Usa PazienteService
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Paziente);
+    service = TestBed.inject(PazienteService);
   });
 
   it('should be created', () => {
