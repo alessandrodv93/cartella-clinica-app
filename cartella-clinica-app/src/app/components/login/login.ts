@@ -23,13 +23,27 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
 accedi() {
-    // Controllo credenziali (in futuro questo lo farà il backend Java)
-    if (this.username === 'admin' && this.password === 'admin123') {
-      console.log('Login successo!');
-      this.router.navigate(['/dashboard']);
-    } else {
-      alert('Username o Password errati. Riprova.');
-    }
+  // 1. Controllo solo se i campi sono compilati (non vuoti)
+  // Non mi interessa COSA c'è scritto, basta che non siano vuoti.
+  const isUsernameValid = this.username && this.username.trim().length > 0;
+  const isPasswordValid = this.password && this.password.trim().length > 0;
+
+  if (isUsernameValid && isPasswordValid) {
+
+    // 2. Simulazione di passaggio
+    // Qui, in futuro, ci sarà la chiamata al server.
+    // Per ora, accettiamo QUALSIASI credenziale pur di far testare l'app.
+    // VANTAGGIO: Non c'è nessuna password scritta in chiaro nel codice!
+
+    console.log('Invio al server:', this.username); // Log di debug
+
+    sessionStorage.setItem('utente', 'Utente Demo');
+    this.router.navigate(['/dashboard']);
+
+  } else {
+    // 3. Errore solo se non scrivi nulla
+    alert('Per favore, inserisci username e password per procedere.');
   }
+}
 
 }
