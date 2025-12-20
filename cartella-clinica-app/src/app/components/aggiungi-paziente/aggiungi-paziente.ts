@@ -22,20 +22,18 @@ export class AggiungiPazienteComponent implements OnInit {
     id: 0,
     nome: '',
     cognome: '',
-    dataIngresso: '',  // Lasciamo vuoto o mettiamo una data di default
+    dataIngresso: '',
     stato: '',         // Tipologia stato 'Ricoverato' - 'Dimesso' - 'In osservazione'
-    idReparto: 0       // 0 o l'ID di un reparto di default
+    idReparto: 0       // ID del reparto associato al paziente
   };
 
-  // Variabile per capire se stiamo modificando o creando
+  // Variabile per capire se stiamo modificando o creando un paziente
   isModifica = false;
 
   constructor(private pazienteService: PazienteService) {}
 
   ngOnInit(): void {
-    // Ci mettiamo in ascolto: se qualcuno clicca "modifica" nella lista, riceviamo i dati qui
     this.pazienteService.pazienteDaModificare.subscribe((p: Paziente) => {
-      // Copiamo i dati nel form (usiamo {...p} per creare una copia e non modificare direttamente la tabella mentre scrivi)
       this.paziente = { ...p };
       this.isModifica = true;
     });
@@ -43,13 +41,13 @@ export class AggiungiPazienteComponent implements OnInit {
 
 salva() {
     if (this.isModifica) {
-      // CASO MODIFICA
+      //MODIFICA PAZIENTE ESISTENTE
       this.pazienteService.update(this.paziente).subscribe(() => {
         alert('Modifica salvata!');
         this.resetForm();
       });
     } else {
-      // CASO INSERIMENTO NUOVO
+      //INSERIMENTO NUOVO PAZIENTE
       this.pazienteService.insert(this.paziente).subscribe(() => {
         alert('Paziente inserito!');
         this.resetForm();
