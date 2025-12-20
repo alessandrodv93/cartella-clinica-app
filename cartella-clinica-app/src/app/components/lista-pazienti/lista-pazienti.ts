@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // <--- CORRETTO: Aggiunto Router
+import { Router } from '@angular/router';
 
 // Moduli Material
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -47,7 +47,7 @@ export class ListaPazienti implements OnInit {
 
   constructor(
     private pazienteService: PazienteService,
-    private router: Router // <--- Ora funzionerà perché abbiamo importato Router in alto
+    private router: Router
   ) { }
 
   ngOnInit(): void {

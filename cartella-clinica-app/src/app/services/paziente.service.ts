@@ -9,7 +9,7 @@ export interface Paziente {
   cognome: string;
   dataIngresso: string;
   stato: string;
-  idReparto: number; // Può essere number o string a seconda del tuo DB
+  idReparto: number;
 }
 
 @Injectable({

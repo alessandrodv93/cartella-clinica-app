@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router'; // Import fondamentale per navigare
+import { Router } from '@angular/router';
 
 // Import per la modifica dei componenti da Angular Material
 import { MatCardModule } from '@angular/material/card';
