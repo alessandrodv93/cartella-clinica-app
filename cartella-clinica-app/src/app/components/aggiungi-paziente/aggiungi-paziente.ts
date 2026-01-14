@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Serve per *ngIf
-import { FormsModule } from '@angular/forms';   // Serve per [(ngModel)]
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-// Import per la grafica (Angular Material)
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 
-// I tuoi modelli e servizi
 import { Paziente } from '../../models/paziente';
 import { PazienteService } from '../../services/paziente.service';
 
@@ -48,7 +46,6 @@ export class AggiungiPazienteComponent implements OnInit {
 
   salva() {
     if (this.isModifica) {
-      // LOGICA MODIFICA
       this.pazienteService.update(this.paziente).subscribe({
         next: () => {
           alert('Modifica salvata con successo!');
@@ -56,19 +53,18 @@ export class AggiungiPazienteComponent implements OnInit {
         },
         error: (err) => {
           console.error('Errore durante la modifica:', err);
-          alert('Errore! Controlla la console (F12) per i dettagli.');
+          alert('Errore! Controlla la console (F12).');
         }
       });
     } else {
-      // LOGICA NUOVO INSERIMENTO
       this.pazienteService.insert(this.paziente).subscribe({
         next: () => {
           alert('Paziente inserito con successo!');
           this.resetForm();
         },
         error: (err) => {
-          console.error('Errore durante l\'inserimento:', err);
-          alert('Errore! Controlla la console (F12). Probabilmente la data o i dati non sono validi per il Backend.');
+          console.error('Errore inserimento:', err);
+          alert('Errore! Controlla la console (F12).');
         }
       });
     }
@@ -76,12 +72,8 @@ export class AggiungiPazienteComponent implements OnInit {
 
   resetForm() {
     this.paziente = {
-      id: 0,
-      nome: '',
-      cognome: '',
-      dataIngresso: '',
-      stato: '',
-      idReparto: 0
+      id: 0, nome: '', cognome: '', dataIngresso: '',
+      stato: '', idReparto: 0
     };
     this.isModifica = false;
   }

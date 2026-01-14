@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule, MatInputModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatIconModule],
-  templateUrl: './login.html', // Assicurati che i nomi coincidano
+  templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class LoginComponent {
@@ -27,13 +27,12 @@ accedi() {
   const isPasswordValid = this.password && this.password.trim().length > 0;
 
   if (isUsernameValid && isPasswordValid) {
-    console.log('Invio al server:', this.username); // Log di debug
+    console.log('Invio al server:', this.username);
 
     sessionStorage.setItem('utente', 'Utente Demo');
     this.router.navigate(['/dashboard']);
 
   } else {
-    // 3. Errore solo se non scrivi nulla
     alert('Per favore, inserisci username e password per procedere.');
   }
 }
